@@ -1,14 +1,16 @@
 package src.main;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 class Compare {
-
+//  https://leetcode.com/problems/longest-substring-of-all-vowels-in-order/
   public static void main(String[] args) {
     System.out.print(//aaio
 //        Cus_free_hitechtalentsllc_jt541Challenge("abceiou"));
-        Cus_free_hitechtalentsllc_jt541Challenge("abcdeaeiaaioaaaaeiiiiouuuooaauuaeiu"));
+//        longestBeautifulSubstring("abcdeaeiaaioaaaaeiiiiouuuooaauuaeiu"));
+        longestBeautifulSubstring("aeeeiiiioooauuuaeiou"));
   }
 
   static boolean isVowel(char c) {
@@ -16,7 +18,7 @@ class Compare {
         || c == 'o' || c == 'u');
   }
 
-  public static Integer Cus_free_hitechtalentsllc_jt541Challenge(String word) {
+  public static Integer longestBeautifulSubstring(String word) {
     // code goes here
 
     int max = 0;
@@ -77,6 +79,6 @@ class Compare {
     if (countList.size() == 0) {
       return 0;
     }
-    return countList.get(0);
+    return countList.stream().sorted(Comparator.naturalOrder()).findFirst().get();
   }
 }
